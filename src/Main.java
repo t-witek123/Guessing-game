@@ -13,26 +13,30 @@ public class Main {
 
         if (age>=18) {
             System.out.println("Your age is about right, you can play this sick game.");
-            System.out.println("");
-            System.out.println("Enter your guess: ");
-            int hidden = 25;
-            int guess = scanner.nextInt();
+
+            String yes="";
             do {
+                int hidden = 25;
+                System.out.println("");
+                System.out.println("Enter your guess: ");
+                Scanner input = new Scanner(System.in);
+                int guess = scanner.nextInt();
 
 
-                if (guess==hidden){
-                    System.out.println("Congratulation, your guess is correct");
-                    break;
-                }else{
-                    if (guess>hidden) {
-                        System.out.println("Try lower number");
+                    if (guess==hidden){
+                        System.out.println("Congratulation, your guess is correct");
+                        break;
                     }
-                    if (guess<hidden) {
-                        System.out.println("Try higher number");
-                    }
-                }
-
-            }while (guess==hidden);
+                        else if (guess>hidden) {
+                            System.out.println("Try lower number");
+                        }
+                        else if (guess<hidden) {
+                            System.out.println("Try higher number");
+                        }
+                        
+                    System.out.println("Would you like to try again? Type yes if you do: ");
+                    yes = input.next();
+            } while (yes.equalsIgnoreCase("yes"));
 
             }else {
                 System.out.println("Sorry man, You need to grow up to play it :) ");
